@@ -1,0 +1,19 @@
+{
+  "name": "food-app",
+  "version": "1.0.0",
+  "description": "Creatig food app for practice",
+  "scripts": {
+    "start": "parcel index.html",
+    "Build":  "parcel build index.html",
+    "test": "Jest"
+  },
+  "author": "Raghul",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
