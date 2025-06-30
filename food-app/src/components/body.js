@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 import RestroCard from './restroCard';
 import Shimmer from './shimmer';
@@ -27,7 +28,9 @@ const Main = () => {
     }
 
    const handleOnChange = (e) => {
-    setFilteredRestroData([]);
+    if(!searchText) {
+        setFilteredRestroData([]);
+    }    
     setSearchText(e.target.value);
     }
 
@@ -68,7 +71,7 @@ const Main = () => {
                 <>
                 {
                     updatedData?.map((data) => (                         
-                        <RestroCard key={data?.info?.id} cardData={data?.info} />
+                        <Link to={data?.info?.id} key={data?.info?.id}><RestroCard cardData={data?.info} /></Link>
                     ))
                 }
                 </>

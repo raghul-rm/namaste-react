@@ -26,13 +26,22 @@ h1, h2, h3, h4, h5, h6, p {
 }
 .header, .footer {
     margin: 0;
-    padding: 10px 20px;
+    padding: 0 20px;
     position: relative;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
     background-color: #eee;
+}
+.footer {
+    padding-block: 10px;
+}
+.header > .branding {
+    padding: 10px 0 10px 20px;
+}
+.header > .branding > img { 
+    height: 30px;
 }
 .header > nav {
     margin: 0;
@@ -50,7 +59,16 @@ h1, h2, h3, h4, h5, h6, p {
 }
 .header > nav > ul > li {
     cursor: pointer;
+    padding-block: 12px;
+    border-top:5px solid transparent;
 }
+.header > nav > ul > li > a {
+    color: #363636;
+    text-decoration: none;
+}
+.header.header > nav > ul > li:has(>a.active) {
+    border-top:5px solid #363636
+} 
 .main {
     margin: 0;
     padding: 0;
@@ -73,18 +91,18 @@ h1, h2, h3, h4, h5, h6, p {
     position: relative;
     width: 95%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px 20px;
 }
-.main > .restro-container > .restro-card {
+.main > .restro-container .restro-card {
     margin: 0;
     padding: 0;
     position: relative;
 }
-.main > .restro-container > .restro-card h5 {
+.main > .restro-container .restro-card h5 {
     font-size: 1.125rem;
 }
-.main > .restro-container > .restro-card p:nth-of-type(1) {
+.main > .restro-container .restro-card p:nth-of-type(1) {
     display: inline-flex;
     font-weight: 0.875rem;
     font-weight: 600;
@@ -94,10 +112,17 @@ h1, h2, h3, h4, h5, h6, p {
     height: 230px;
     background-color: #dfdfdf;
 }
-img {
+.main > .restro-container .restro-card > img {
     width: 100%;
     height: 100%;
     max-height: 160px;
     object-fit: cover;
     border-radius: 8px;
+}
+.main.restro-menu-container {
+    margin: 0 auto;
+    padding: 40px;
+    position: relative;
+    width: 95%;
+
 }

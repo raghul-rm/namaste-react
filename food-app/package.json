@@ -1,19 +1,31 @@
 {
-  "name": "food-app",
+  "name": "Food App",
   "version": "1.0.0",
-  "description": "Creatig food app for practice",
+  "description": "Creating a swiggy clone",
   "scripts": {
     "start": "parcel index.html",
-    "Build":  "parcel build index.html",
-    "test": "Jest"
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raghul-rm/namaste-react.git"
   },
   "author": "Raghul",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raghul-rm/namaste-react/issues"
+  },
+  "homepage": "https://github.com/raghul-rm/namaste-react#readme",
   "devDependencies": {
     "parcel": "^2.15.4"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  }
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.30.1"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
 }
