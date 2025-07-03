@@ -28,7 +28,7 @@ const resRouter = createBrowserRouter([
     element: <AppLayout />,
     children: [
         {
-        path: "/",
+        path: "/product",
         element: <Main />,
         },
         {
@@ -40,7 +40,7 @@ const resRouter = createBrowserRouter([
         element: <Contact />,
         },
         {
-        path: "/:id",
+        path: "/product/:id",
         element: <RestroMenu />,
         },
     ]
