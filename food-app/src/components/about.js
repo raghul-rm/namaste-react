@@ -26,7 +26,7 @@ class About extends React.Component {
         
         return (
             <main className='main' style={{margin:'40px'}}>
-                <img src='' />
+                {/* <img src={data?.image} /> */}
                 <div>
                     <h1>About</h1>
                     <Profile data={data} />

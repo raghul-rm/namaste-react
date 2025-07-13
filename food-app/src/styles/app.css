@@ -34,7 +34,11 @@ h1, h2, h3, h4, h5, h6, p {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-    background-color: #eee;
+    background-color: #dcf5f5;
+}
+.header {    
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 .footer {
     padding-block: 10px;
@@ -96,6 +100,23 @@ h1, h2, h3, h4, h5, h6, p {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px 20px;
 }
+.main > .restro-container > a {
+    position: relative;
+    transition: all 0.25s ease-in-out;
+}
+.main > .restro-container > a:hover {
+    transform: scale(0.95);
+}
+.main > .restro-container > a > label {
+    position: absolute;
+    z-index: 1;
+    top: 45%;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-shadow: 3px 2px 2px #000;
+    left: 10px;
+}
 .main > .restro-container .restro-card {
     margin: 0;
     padding: 0;
@@ -131,17 +152,75 @@ h1, h2, h3, h4, h5, h6, p {
     width: 100%;
     flex: 1 0 0;
     overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
 }
 .restro-menu-container > .menu-header {
+    width: 50%;
     margin: 20px 20px;
     padding: 10px 30px;
-    background-color:#ccc;
+    background-color: azure;
+    border-radius: 8px;
 }
 .restro-menu-container > .menu-body {
+    width: 50%;
     margin: 0 20px;
     padding: 10px 30px;
     border: 1px solid #ccc;
-    height: calc(100% - 180px);
+    /* height: calc(100% - 180px);
     overflow: hidden;
-    overflow-y: auto;
+    overflow-y: auto; */
+}
+.menu-items {
+    margin: 0;
+    padding: 20px 5px;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap ;
+    border-bottom: 1px solid #ccc;
+}
+.menu-items > .menu-item {
+    flex: 1 0 0;
+}
+.menu-items > .menu-item > p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.menu-items > .menu-img {
+    position: relative;
+    width: 156px;
+    height: 144px;
+    border-radius: 12px;
+}
+.menu-items > .menu-img > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+.menu-items > .menu-img > button {
+    padding: 10px;
+    position: absolute;
+    bottom: -15px;
+    left: 15%;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .10s ease-in-out;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+.menu-items > .menu-img > button:hover {
+    background-color: #eee;
+}
+.menu-items > .menu-img > button:active {
+    transform: scale(0.95);
 }

@@ -1,29 +1,24 @@
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import resLogo from 'url:../assets/images/logo.png';
 
+import { userUseContext } from '../utils/userContext';
+
 const Header = () => {
   const [isLogin, setIsLogin] = React.useState(false);
-  const [isOnline, setIsOnline] = React.useState(navigator.onLine);
 
-  const handleLogin = () => {
+  const navigate = useNavigate();
+
+  const {name, setName} = userUseContext();
+
+  const items = useSelector(store => store.cart.items)
+
+  const handleLogin = (loginVal) => {
     setIsLogin(prev => !prev);
+    setName(!!loginVal ? 'Raghul' : 'Default');
   }
-
-   React.useEffect(() => {
-    const handleOnline = () => setIsOnline(true);
-    const handleOffline = () => setIsOnline(false);
-
-    window.addEventListener('online', handleOnline);
-    window.addEventListener('offline', handleOffline);
-
-    // Cleanup event listeners on component unmount
-    return () => {
-      window.removeEventListener('online', handleOnline);
-      window.removeEventListener('offline', handleOffline);
-    };
-  }, []);
 
   return (
     <header className='header'>
@@ -37,9 +32,9 @@ const Header = () => {
   }>Home</NavLink></li>
                 <li><NavLink to="/about">About</NavLink></li>
                 <li><NavLink to="/contact">Contact</NavLink></li>
-                <li>Cart</li>
-                <li><span>{!!isOnline ? 'Online' : 'Offline'}</span></li>
-                <li><button type='button' onClick={handleLogin}>{!!isLogin ? 'Login' : 'Logout'}</button></li>
+                <li onClick={() => navigate('/cart')}>Cart ({items.length})</li>
+                <li><button type='button' onClick={() => handleLogin(isLogin)}>{!!isLogin ? 'Login' : 'Logout'}</button></li>
+                <li>{name}</li>
             </ul>
         </nav>
     </header>

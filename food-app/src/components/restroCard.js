@@ -16,3 +16,15 @@ const RestroCard = ({cardData}) => {
 }
 
 export default RestroCard;
+
+export const withAggregatedDiscount = (RestroCard) => {
+  return ({cardData}) => {
+    let cardLabel = cardData?.aggregatedDiscountInfoV3?.header+' '+cardData?.aggregatedDiscountInfoV3?.subHeader;
+    return (
+      <>
+        <label>{cardLabel}</label>
+        <RestroCard cardData={cardData} />
+      </>
+    )
+  }
+}

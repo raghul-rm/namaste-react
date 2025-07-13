@@ -5,8 +5,7 @@ class Profile extends React.Component {
         super(props);
     }
 
-    render() {
-        console.log(this.props.data);
+    render() {        
         return (
             <section>
                 <img src={this.props.data?.image} alt={this.props.data?.firstname} />
